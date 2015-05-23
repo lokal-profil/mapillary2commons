@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mapillary2Commons</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link rel='stylesheet' type='text/css' href='stylesheet.css'/>
+        <link rel="profile" href="//www.w3.org/2005/10/profile" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+	</head>
+	<body>
+        <noscript>
+            <div class="clear problem indent">
+                This webpage requires JavaScript. Sorry?
+            </div>
+        </noscript>
+        <h1>Something catchy</h1>
+        <p>
+            Some info about what you are allowed to enter below.
+        </p>
+        <div id="mapillary_id_form" class="form">
+            <label for="mapillary">Mapillary id or url: </label>
+                <input type="text" id="mapillary" title="A Mapillary image id or url" placeholder="an example" tabindex=1 required/>
+            <button id="button" class="button" tabindex=2>Check!</button>
+        </div>
+        <p id="reflect" class="clear problem indent"></p>
+        <div id="thumbDiv" class="thumbDiv indent hidden">
+            <img id="thumb" title="Den använda bilden" alt="Den använda bilden"/>
+            <a id="submit_button_link">
+                <button id="submit_button" class="hidden button" tabindex=4 >Upload!</button>
+            </a>
+        </div>
+	</body>
+</html>

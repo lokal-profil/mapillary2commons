@@ -1,0 +1,86 @@
+h1{
+    display: block;
+}
+form{
+    display: inline-block;
+    clear: both;
+}
+.button{
+    height:20px;
+	width:70px;
+	background-color:#ABCDEF;
+    transition: background-color 0.5s ease;
+	font-family:arial;
+	font-weight:bold;
+	color:#ffffff;
+	border-radius: 5px;
+	text-align:center;
+	margin-top:2px;
+    border:none;
+}
+p + ul{
+    margin-top: -10px;
+}
+.thumbDiv{
+    float: left;
+    width: 25%;
+    min-width: 200px;
+    max-height: 650px;
+    padding-left: 0.5em;
+}
+#thumb{
+    width: 100%;
+}
+.indent{
+    margin-left: 15%;
+}
+.clear{
+    clear: both;
+}
+.footer{
+    font-size: smaller;
+}
+.hidden{
+    display: none;
+}
+.problem{
+    font-weight: bold;
+    color: red;
+}
+label{
+    clear: left;
+    width: 15%;
+    padding-right: 0.5em;
+}
+input{
+    float: left;
+    width: 25%;
+}
+.preview{
+    padding-left: 1em;
+    opacity: 0.75;
+}
+.form .cmt{
+    width: 40%;
+    text-align: left;
+    float: left;
+}
+.form br{
+    clear: left;
+}
+.form label{
+    float: left;
+    text-align: right;
+}
+.active{
+    -webkit-box-shadow: 0 0 8px #FFD700;
+    -moz-box-shadow: 0 0 8px #FFD700;
+    box-shadow: 0 0 8px #FFD700;
+    background-color:#556677;
+    cursor:pointer;
+}
+.highlighted{
+    -webkit-box-shadow: 0 0 8px #FF0000;
+    -moz-box-shadow: 0 0 8px #FF0000;
+    box-shadow: 0 0 8px #FF0000;
+}
