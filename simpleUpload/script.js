@@ -4,7 +4,8 @@ $(document).ready(function() {
         '2. unused code\n' +
         '3. crappy code\n' +
         '4. lack of error handling\n' +
-        'If you care enough ping me at @Lokal_Profil and I\'ll stick it on github');
+        '5. meaningless text\n' + 
+        'If you care enough then please contribute to https://github.com/lokal-profil/mapillary2commons');
     // load filename from url
     var urlFilename = getURLParameter('mapillary');
     if (urlFilename) {
