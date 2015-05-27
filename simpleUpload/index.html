@@ -25,34 +25,49 @@
   </head>
   <body>
     <noscript>
-            <div class="clear problem indent">
-                This webpage requires JavaScript. Sorry?
+            <div class="text-center text-danger">
+                This web page requires JavaScript. Sorry?
             </div>
         </noscript>
         <div class="container">
             <div class="page-header">
-                <h1>Something catchy</h1>
+                <h1>Mapillary 2 Commons</h1>
             </div>
             <p class="lead">
-                Some info about what you are allowed to enter below.
+                Ever found a beautiful image on <a href="https://mapillary.com">Mapillary</a>
+                and thought <i>That would look great on <a href=https:commons.wikimedia.org">Wikimedia Commons</a></i>?
+            </p>
+            <p> Simply enter the image key or url below and click <i>Check!</i>.
+                Make sure it's the right image then click on the second
+                button to upload the image to Commons, complete with source
+                and attribution.
+            </p>
+            <p>
+                If Mapillary doesn't know the name of the location you'll
+                be prompted to enter one. You can also pas this page a url
+                directly using the <code>mapillary=</code> url parameter.
+                Don't forget to go to the Commons image afterwards and
+                add categories.
             </p>
             <div id="mapillary_id_form" class="form">
-                <label for="mapillary">Mapillary id or url: </label>
-                    <input type="text" id="mapillary" title="A Mapillary image id or url" placeholder="an example" tabindex=1 required autofocus/>
-                <button id="button" class="button" tabindex=2>Check!</button>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="mapillary" title="A Mapillary image id or url" placeholder="http://www.mapillary.com/map/im/2z5MCCrTgC1T29Gm8XJrCg" tabindex=1 required autofocus>
+                        <span class="input-group-btn">
+                            <button id="button" class="btn btn-primary" type="button" tabindex=2>Check!</button>
+                        </span>
+                </div>
             </div>
-            <p id="reflect" class="clear problem indent"></p>
-            <div id="thumbDiv" class="thumbDiv indent hidden">
-                <img id="thumb" title="Den använda bilden" alt="Den använda bilden"/>
-                <a id="submit_button_link">
-                    <button id="submit_button" class="hidden button" tabindex=4 >Upload!</button>
-                </a>
+                <p id="reflect" class="text-center text-danger"></p>
+                <div id="thumbDiv" class="thumbDiv hidden pagination-centered">
+                    <img id="thumb" class="img-thumbnail" title="The requested image" alt="The requested image"/>
+                    <a class="btn btn-primary btn-sm btn-block" style="word-wrap:break-word" role="button" id="submit_button">Upload!</a>
+                </div>
             </div>
         </div><!-- /.container -->
 
         <footer class="footer">
             <div class="container">
-                <p class="text-muted">It's quick and dirty and lives on <a href="https://github.com/lokal-profil/mapillary2commons">GitHub</a>. You know what to do.</p>
+                <p class="text-muted">The source for this lives on <a href="https://github.com/lokal-profil/mapillary2commons">GitHub</a>, enjoy! /Lokal_Profil</p>
             </div>
         </footer>
 

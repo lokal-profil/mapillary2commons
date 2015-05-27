@@ -1,19 +1,12 @@
 $(document).ready(function() {
-    console.log('This is a quick hack. As such it might contain:\n' +
-        '1. Swedish comments and text\n' +
-        '2. unused code\n' +
-        '3. crappy code\n' +
-        '4. lack of error handling\n' +
-        '5. meaningless text\n' + 
-        'If you care enough then please contribute to https://github.com/lokal-profil/mapillary2commons');
     // load filename from url
     var urlFilename = getURLParameter('mapillary');
     if (urlFilename) {
         $('#mapillary').val(urlFilename);
-        processFilename();  // lookup direclty if filename
+        processFilename();  // lookup directly if filename
     }
     // responsive buttons
-    $('.button').hover(
+    $('.btn').hover(
         function() {
             if (!$(this).prop("disabled")) {
                 $(this).addClass('active');
@@ -23,12 +16,6 @@ $(document).ready(function() {
             $(this).removeClass('active');
         }
     );
-    // add asterisk next to any required input field
-    $('input').each(function() {
-        if ($(this).prop('required')) {
-            $(this).after("<span class=\"problem\">*</span>");
-        }
-    });
     // on enter or clicking button, look up info on Mapillary
     $('#mapillary').keypress(function(e) {
         if(e.which == 13) {
@@ -99,13 +86,13 @@ function queryMapillary(file_key) {
                 // Ready to produce upload link
                 $('#thumb').attr("src", imageurl);
                 $('#thumbDiv').removeClass('hidden');
-                $('#submit_button_link').attr("href", magnusurl);
+                $('#submit_button').attr("href", magnusurl);
+                $('#submit_button').html('<big>Upload as</big><br/>' + destFile);
                 $('#submit_button').removeClass('hidden');
             }
         },
         error: function (jqxhr, textStatus, errorThrown) {
-            alert("The ajax call failed");
-            $('#reflect').text(textStatus + ' : ' + errorThrown);
+            $('#reflect').text('The ajax call failed: ' + textStatus + ' : ' + errorThrown);
             console.log(textStatus);
             console.log(errorThrown);
         }
