@@ -94,7 +94,7 @@ function queryMapillary(file_key) {
                 //request larger size
                 var imageurl = parseddata.nodes[0].image.replace('thumb-1024.jpg', 'thumb-2048.jpg');
                 var magnusurl = '//tools.wmflabs.org/url2commons/index.html?' +
-                                //'run=1&' +
+                                'run=1&' +
                                 'urls=' + imageurl + ' ' +
                                 destFile + '|' +
                                 encodeURIComponent(uploadDescription) +
