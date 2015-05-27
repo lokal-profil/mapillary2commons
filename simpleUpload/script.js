@@ -49,6 +49,7 @@ function processFilename() {
     }
     // run if mapillary_id is likely to be valid
     if (run) {
+        $('#pre_info').addClass('hidden');
         queryMapillary(input);
         $('#button').prop('disabled', false);
     }

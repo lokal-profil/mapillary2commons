@@ -40,15 +40,9 @@
             <p> Simply enter the image key or url below and click <i>Check!</i>.
                 Make sure it's the right image then click on the second
                 button to upload the image to Commons, complete with source
-                and attribution.
+                and attribution and uploaded using your Wikimedia username.
             </p>
-            <p>
-                If Mapillary doesn't know the name of the location you'll
-                be prompted to enter one. You can also pas this page a url
-                directly using the <code>mapillary=</code> url parameter.
-                Don't forget to go to the Commons image afterwards and
-                add categories.
-            </p>
+
             <div id="mapillary_id_form" class="form">
                 <div class="input-group">
                     <input type="text" class="form-control" id="mapillary" title="A Mapillary image id or url" placeholder="http://www.mapillary.com/map/im/2z5MCCrTgC1T29Gm8XJrCg" tabindex=1 required autofocus>
@@ -57,6 +51,27 @@
                         </span>
                 </div>
             </div>
+                <div id="pre_info" class="pre_info">
+                    <ul>
+                        <li>
+                            You need a Wikimedia Commons account and to have
+                            <a href="https://tools.wmflabs.org/magnustools/oauth_uploader.php?action=authorize">authorized</a>
+                            OAuth Uploader for this tool to work
+                        </li>
+                        <li>
+                            If Mapillary doesn't know the name of the location
+                            you'll be prompted to enter one.
+                        </li>
+                        <li>
+                            You can also pass this page a url directly using
+                            the <code>mapillary=</code> url parameter.
+                        </li>
+                        <li>
+                            Don't forget to go to the Commons image afterwards
+                            and add categories.
+                        </li>
+                    </ul>
+                </div>
                 <p id="reflect" class="text-center text-danger"></p>
                 <div id="thumbDiv" class="thumbDiv hidden pagination-centered">
                     <img id="thumb" class="img-thumbnail" title="The requested image" alt="The requested image"/>

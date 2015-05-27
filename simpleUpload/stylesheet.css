@@ -10,6 +10,9 @@
     bottom: 0;
     width: 100%;
 }
+.pre_info{
+    padding-top: 1em;
+}
 .hidden{
     display: none;
 }
