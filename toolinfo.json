@@ -1,0 +1,20 @@
+[
+    {
+      "name" : "mapillary_simpleUpload",
+      "title" : "Mapillary2Commons",
+      "description" : "Uploads an image from Mapillary (http://mapillary.com/) to Wikimedia Commons",
+      "url" : "https://tools.wmflabs.org/mapillary-commons/mapillary2commons/",
+      "keywords" : "tools, Mapillary, Commons, upload",
+      "author" : "Lokal_Profil",
+      "repository" : "https://github.com/lokal-profil/mapillary2commons.git"
+    },
+    {
+      "name" : "mapillary_WLM",
+      "title" : "Wiki Loves Monuments and Mapillary",
+      "description" : "A map of Wiki Loves Monuments objects from which you can also navigate Mapillary (http://mapillary.com/) and upload its images to Wikimedia Commons",
+      "url" : "https://tools.wmflabs.org/mapillary-commons/wlm-maps/",
+      "keywords" : "tools, Mapillary, Commons, upload, WLM, map",
+      "author" : "peterneubauer, emijrp, Lokal_Profil",
+      "repository" : "https://github.com/lokal-profil/wlm-maps.git"
+    }
+]
