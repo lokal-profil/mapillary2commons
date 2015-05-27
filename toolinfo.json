@@ -1,7 +1,7 @@
 [
     {
       "name" : "mapillary_simpleUpload",
-      "title" : "Mapillary2Commons",
+      "title" : "Mapillary-2-Commons",
       "description" : "Uploads an image from Mapillary (http://mapillary.com/) to Wikimedia Commons",
       "url" : "https://tools.wmflabs.org/mapillary-commons/mapillary2commons/",
       "keywords" : "tools, Mapillary, Commons, upload",
@@ -16,5 +16,13 @@
       "keywords" : "tools, Mapillary, Commons, upload, WLM, map",
       "author" : "peterneubauer, emijrp, Lokal_Profil",
       "repository" : "https://github.com/lokal-profil/wlm-maps.git"
+    },
+    {
+      "name" : "mapillary_widget",
+      "title" : "Commons Mapillary browser",
+      "description" : "A gadget which allows you to browse Mapillary (http://mapillary.com/) from a Wikimedia Commons image description page of an image uploaded from Mapillary.",
+      "url" : "https://commons.wikimedia.org/wiki/User:Peterneubauer/mapillary.js",
+      "keywords" : "tools, Mapillary, Commons",
+      "author" : "peterneubauer, Lokal_Profil"
     }
 ]
