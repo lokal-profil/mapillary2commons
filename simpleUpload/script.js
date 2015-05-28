@@ -77,7 +77,7 @@ function queryMapillary(file_key) {
                 while (parseddata.nodes[0].location === '') {
                     parseddata.nodes[0].location = prompt("Please enter a short description of the location", "");
                 }
-                parseddata.nodes[0].key = parseddata.nodes[0].key.replace ( /_/g , "$US$" ) ;
+
                 var isoDate = new Date(parseddata.nodes[0].captured_at).toISOString().replace(/T/g, ' ').replace(/.000Z/g, '');
                 var uploadDescription = '{{subst:Mapillary' +
                     '|location=' + parseddata.nodes[0].location +
@@ -96,9 +96,9 @@ function queryMapillary(file_key) {
                 var imageurl = parseddata.nodes[0].image.replace('thumb-1024.jpg', 'thumb-2048.jpg');
                 var magnusurl = '//tools.wmflabs.org/url2commons/index.html?' +
                                 'run=1&' +
-                                'urls=' + imageurl + ' ' +
+                                'urls=' + imageurl.replace( /_/g , "$US$" ) + ' ' +
                                 destFile + '|' +
-                                encodeURIComponent(uploadDescription) +
+                                encodeURIComponent(uploadDescription).replace( /_/g , "$US$" ) +
                                 '&desc=$DESCRIPTOR$';
                 // Ready to produce upload link
                 $('#thumb').attr("src", imageurl);
