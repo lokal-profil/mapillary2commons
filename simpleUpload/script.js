@@ -60,7 +60,7 @@ function processFilename() {
 
 // query mapillary and process response
 function queryMapillary(file_key) {
-    var url = 'https://a.mapillary.com/v2/g/' +
+    var url = 'https://a.mapillary.com/v2/im/' +
               file_key +
               "?client_id=NzNRM2otQkR2SHJzaXJmNmdQWVQ0dzoxNjQ3MDY4ZTUxY2QzNGI2";
 
@@ -68,49 +68,45 @@ function queryMapillary(file_key) {
         url: url,
         dataType: 'json',
         success: function (data) {
-            // console.log('raw mapillary data', data);
             var parseddata = data;
-            if (parseddata.nodes.length === 0) {
-                $('#reflect').text('Mapillary could not find any information on that id. Sure it is right?');
+            while (parseddata.location === '') {
+                parseddata.location = prompt("Please enter a short description of the location", "");
             }
-            else {
-                while (parseddata.nodes[0].location === '') {
-                    parseddata.nodes[0].location = prompt("Please enter a short description of the location", "");
-                }
 
-                var isoDate = new Date(parseddata.nodes[0].captured_at).toISOString().replace(/T/g, ' ').replace(/.000Z/g, '');
-                var uploadDescription = '{{subst:Mapillary' +
-                    '|location=' + parseddata.nodes[0].location +
-                    '|key=' + parseddata.nodes[0].key +
-                    '|date=' + isoDate +
-                    '|username=' + parseddata.nodes[0].username +
-                    '|lat=' + parseddata.nodes[0].lat +
-                    '|lon=' + parseddata.nodes[0].lon +
-                    '|ca=' + parseddata.nodes[0].ca +
-                    '}}';
-                var destFile = parseddata.nodes[0].location +
-                               ' - Mapillary (' +
-                               parseddata.nodes[0].key +
-                               ').jpg';
-                //request larger size
-                var imageurl = parseddata.nodes[0].image.replace('thumb-1024.jpg', 'thumb-2048.jpg');
-                var magnusurl = '//tools.wmflabs.org/url2commons/index.html?' +
-                                'run=1&' +
-                                'urls=' + imageurl.replace( /_/g , "$US$" ) + ' ' +
-                                destFile + '|' +
-                                encodeURIComponent(uploadDescription).replace( /_/g , "$US$" ) +
-                                '&desc=$DESCRIPTOR$';
-                // Ready to produce upload link
-                $('#thumb').attr("src", imageurl);
-                $('#submit_button').attr("href", magnusurl);
-                $('#submit_button').html('<big>Upload as</big><br/>' + destFile);
-                $('#thumbDiv').removeClass('hidden');
-            }
+            var isoDate = new Date(parseddata.captured_at).toISOString().replace(/T/g, ' ').replace(/.000Z/g, '');
+            var uploadDescription = '{{subst:Mapillary' +
+                '|location=' + parseddata.location +
+                '|key=' + parseddata.key +
+                '|date=' + isoDate +
+                '|username=' + parseddata.user +
+                '|lat=' + parseddata.lat +
+                '|lon=' + parseddata.lon +
+                '|ca=' + parseddata.ca +
+                '}}';
+            var destFile = parseddata.location +
+                           ' - Mapillary (' +
+                           parseddata.key +
+                           ').jpg';
+            //request larger size
+            var imageurl = 'https://d1cuyjsrcm0gby.cloudfront.net/' + parseddata.key + '/thumb-2048.jpg'
+            var magnusurl = '//tools.wmflabs.org/url2commons/index.html?' +
+                            'run=1&' +
+                            'urls=' + imageurl.replace( /_/g , "$US$" ) + ' ' +
+                            destFile + '|' +
+                            encodeURIComponent(uploadDescription).replace( /_/g , "$US$" ) +
+                            '&desc=$DESCRIPTOR$';
+            // Ready to produce upload link
+            $('#thumb').attr("src", imageurl);
+            $('#submit_button').attr("href", magnusurl);
+            $('#submit_button').html('<big>Upload as</big><br/>' + destFile);
+            $('#thumbDiv').removeClass('hidden');
         },
         error: function (jqxhr, textStatus, errorThrown) {
-            $('#reflect').text('The ajax call failed: ' + textStatus + ' : ' + errorThrown);
-            console.log(textStatus);
-            console.log(errorThrown);
+            if (errorThrown === 'Not Found') {
+                $('#reflect').text('Mapillary could not find any information on that id. Sure it is right?');
+            } else {
+                $('#reflect').text('The ajax call failed: ' + textStatus + ' : ' + errorThrown);
+            }
         }
     });
 }
