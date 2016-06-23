@@ -69,7 +69,7 @@ function queryMapillary(file_key) {
         dataType: 'json',
         success: function (data) {
             var parseddata = data;
-            while (parseddata.location === '') {
+            while ((parseddata.location === '') || (parseddata.location === NULL)){
                 parseddata.location = prompt("Please enter a short description of the location", "");
             }
 
