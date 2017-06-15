@@ -15,7 +15,7 @@ var m2c = {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
 
-    xhr.onreadystatechange = () => {
+    xhr.onreadystatechange = function() {
       if (xhr.readyState == 4) {
         var response = JSON.parse(xhr.responseText);
         if (typeof callback == 'function') {
@@ -62,7 +62,7 @@ var m2c = {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
 
-    xhr.onreadystatechange = () => {
+    xhr.onreadystatechange = function() {
       if (xhr.readyState == 4) {
         var response = JSON.parse(xhr.responseText);
         if (typeof callback == 'function') {
@@ -117,7 +117,7 @@ var m2c = {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
 
-    xhr.onreadystatechange = () => {
+    xhr.onreadystatechange = function() {
       if (xhr.readyState == 4) {
         var response = JSON.parse(xhr.responseText);
         var local;
@@ -159,10 +159,10 @@ var m2c = {
     container.innerHTML = text;
     container.style.display = 'inline';
 
-    window.setTimeout(() => {
+    window.setTimeout(function() {
       container.style.display = 'none';
     }, 6000);
-  };
+  }
 }
 
 var id = m2c.mapillaryURLtoID(m2c.getMapillaryFromURL());
@@ -186,18 +186,18 @@ document.getElementById('location-input').addEventListener('input', function(evt
 });
 
 function processImageID(id) {
-  m2c.getMapillaryData(id, (data) => {
+  m2c.getMapillaryData(id, function(data) {
     if (data) {
-      m2c.mapillaryInCommons(id, (commons) => {
+      m2c.mapillaryInCommons(id, function(commons) {
         if (!commons[0]) {
-          m2c.getMapzenLocation(data.geometry.coordinates, (location) => {
+          m2c.getMapzenLocation(data.geometry.coordinates, function(location) {
 
             document.getElementById('location-input').value = location;
             var evt = document.createEvent('HTMLEvents');
             evt.initEvent('input', false, true);
             document.getElementById('location-input').dispatchEvent(evt);
 
-            m2c.loadMapillaryImage(id, (url) => {
+            m2c.loadMapillaryImage(id, function(url) {
               if (typeof url === 'string') {
                 document.getElementById('image').src = url;
                 document.getElementById('main').style.display = 'flex';
