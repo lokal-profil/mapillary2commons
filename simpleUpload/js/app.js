@@ -121,13 +121,18 @@ var m2c = {
       if (xhr.readyState == 4) {
         var response = JSON.parse(xhr.responseText);
         var local;
-        if (!response.features[0].properties.locality) {
-          local = response.features[0].properties.region;
+        if (!response.  features.length < 1) {
+          if (!response.features[0].properties.locality) {
+            local = response.features[0].properties.region;
+          } else {
+            local = response.features[0].properties.locality;
+          }
+
+          var locString = local + ', ' + response.features[0].properties.country;
         } else {
-          local = response.features[0].properties.locality;
+          var locString = '';
         }
 
-        var locString = local + ', ' + response.features[0].properties.country;
         if (typeof callback == 'function') {
           callback.apply(null, [locString]);
         }
