@@ -121,7 +121,7 @@ var m2c = {
       if (xhr.readyState == 4) {
         var response = JSON.parse(xhr.responseText);
         var local;
-        if (!response.  features.length < 1) {
+        if (!response.features.length < 1) {
           if (!response.features[0].properties.locality) {
             local = response.features[0].properties.region;
           } else {
@@ -149,6 +149,9 @@ var m2c = {
       var destFile = location + ' - Mapillary (' + id + ').jpg';
       document.getElementById('filename-label').innerText = destFile;
       m2c.constructURL(location, destFile);
+    } else {
+      document.getElementById('upload').href = '';
+      document.getElementById('filename-label').innerText = 'Enter a location description before uploading.';
     }
   },
 
@@ -188,6 +191,12 @@ if (id) {
 
 document.getElementById('location-input').addEventListener('input', function(evt) {
   m2c.constructFilename(this.value, id);
+});
+
+document.getElementById('upload').addEventListener('click', function(evt) {
+  if (this.href = window.location.href) {
+    evt.preventDefault();
+  }
 });
 
 function processImageID(id) {
