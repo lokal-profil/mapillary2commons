@@ -1,7 +1,12 @@
-Mapillary2commons
-=========
+# Mapillary2Commons
 
-Tools and stuff for getting [Mapillary](https://mapillary.com) content
-onto [Wikimedia Commons](https://commons.wikimedia.org).
+Tool for uploading images from [Mapillary](https://www.mapillary.com/) to [Wikimedia Commons](https://commons.wikimedia.org/).
 
-Things most likely live at [toollabs](https://tools.wmflabs.org/mapillary-commons)
+Alive at [Tool Labs](https://tools.wmflabs.org/mapillary-commons).
+
+## URL API
+
+Mapillary2Commons allows you to link and initiate the uploading process by appending the `mapillary` URL parameter followed by a Mapillay image key or its full URL:
+
+ - `?mapillary=e814RJRxf8cnqn4OEFFMnQ`
+ - `?mapillary=https://www.mapillary.com/map/im/Pcf-Yomz9ST-YEZC4wy0xw`
