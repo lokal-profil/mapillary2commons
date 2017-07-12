@@ -115,3 +115,16 @@ main img {
 #mapillary-submit {
   display: none;
 }
+
+.info {
+  position: fixed;
+  width: 100%;
+  background: #FFF;
+  border-bottom: 4px solid #00C954;
+  box-sizing: border-box;
+}
+
+.info-bottom {
+  position: absolute;
+  bottom: 0;
+}

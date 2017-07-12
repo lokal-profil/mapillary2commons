@@ -10,17 +10,24 @@
 	</head>
 	<body>
 		<div class="notification" id="notification"></div>
+		<div class="info">
+			<ul>
+				<li>You need a Wikimedia Commons account and to have <a href="https://tools.wmflabs.org/magnustools/oauth_uploader.php?action=authorize">authorized OAuth Uploader</a> for this tool to work.</li>
+				<li>Don't forget to go to the Commons image afterwards and add categories.</li>
+			</ul>
+		</div>
 		<header>
 			<div class="container">
 				<h1>Mapillary 2 Commons</h1>
 				<ul>
-					<li>You need a Wikimedia Commons account and to have <a href="https://tools.wmflabs.org/magnustools/oauth_uploader.php?action=authorize">authorized OAuth Uploader</a> for this tool to work.</li>
-					<li>Don't forget to go to the Commons image afterwards and add categories.</li>
+					<li>Ever found a beautiful image on <a href="https://www.mapillary.com">Mapillary</a> and thought <i>That would look great on <a href="https://commons.wikimedia.org">Wikimedia Commons</a></i>?</li>
+					<li>Simply enter the image key or url below and click "Lookup".</li>
 				</ul>
 				<input id="mapillary-input" type="text" placeholder="https://www.mapillary.com/map/im/2z5MCCrTgC1T29Gm8XJrCg" />
 				<br/>
 				<button id="mapillary-submit" class="btn white">Lookup</button>
 			</div>
+			<p class="info-bottom"><a href="https://github.com/lokal-profil/mapillary2commons">Source Code and API Documentation</a></p>
 		</header>
 		<main id="main" class="container">
 			<img id="image" alt="the image to import" src="" />
