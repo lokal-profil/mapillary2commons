@@ -2,7 +2,7 @@
 
 Tool for uploading images from [Mapillary](https://www.mapillary.com/) to [Wikimedia Commons](https://commons.wikimedia.org/).
 
-Alive at [Tool Labs](https://tools.wmflabs.org/mapillary-commons).
+Alive at [Tool Labs](https://tools.wmflabs.org/mapillary-commons/mapillary2commons/).
 
 ## URL API
 
