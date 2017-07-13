@@ -194,7 +194,7 @@ document.getElementById('location-input').addEventListener('input', function(evt
 });
 
 document.getElementById('upload').addEventListener('click', function(evt) {
-  if (this.href = window.location.href) {
+  if (evt.taget.href === window.location.href) {
     evt.preventDefault();
   }
 });
