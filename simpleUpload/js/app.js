@@ -20,7 +20,12 @@ var m2c = {
         var response = JSON.parse(xhr.responseText);
         if (typeof callback == 'function') {
           if (response.query.search.length > 0) {
-            callback.apply(null, [[true, response.query.search[0].title]]);
+            // if the first commons result does not have the image key in its filename it's a false positive
+            if (response.query.search[0].title.indexOf(id.replace(/_/g , ' ')) !== -1) {
+              callback.apply(null, [[true, response.query.search[0].title]]);
+            } else {
+              callback.apply(null, [[false]]);
+            }
           } else {
             callback.apply(null, [[false]]);
           }
@@ -194,7 +199,7 @@ document.getElementById('location-input').addEventListener('input', function(evt
 });
 
 document.getElementById('upload').addEventListener('click', function(evt) {
-  if (this.href = window.location.href) {
+  if (evt.target.href === window.location.href) {
     evt.preventDefault();
   }
 });
