@@ -22,12 +22,12 @@ var m2c = {
           if (response.query.search.length > 0) {
             // if the first commons result does not have the image key in its filename it's a false positive
             if (response.query.search[0].title.indexOf(id.replace(/_/g , ' ')) !== -1) {
-              callback.apply(null, [[true, response.query.search[0].title]]);
+              callback.apply(null, [response.query.search[0].title]);
             } else {
-              callback.apply(null, [[false]]);
+              callback.apply(null, [false]);
             }
           } else {
-            callback.apply(null, [[false]]);
+            callback.apply(null, [false]);
           }
         }
       } else {
@@ -109,45 +109,6 @@ var m2c = {
     document.getElementById('upload').href = url;
   },
 
-  getMapzenLocation: function(location, callback) {
-    var url = m2c.mapzenEndpoint +
-      'reverse?api_key=' +
-      m2c.mapzenKey +
-      '&point.lat=' +
-      location[1] +
-      '&point.lon=' +
-      location[0] +
-      '&size=1';
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState == 4) {
-        var response = JSON.parse(xhr.responseText);
-        var local;
-        if (!response.features.length < 1) {
-          if (!response.features[0].properties.locality) {
-            local = response.features[0].properties.region;
-          } else {
-            local = response.features[0].properties.locality;
-          }
-
-          var locString = local + ', ' + response.features[0].properties.country;
-        } else {
-          var locString = '';
-        }
-
-        if (typeof callback == 'function') {
-          callback.apply(null, [locString]);
-        }
-      } else {
-        return;
-      }
-    };
-    xhr.send();
-  },
-
   constructFilename: function(location, id) {
     // expect location to be more then 3 charters long
     if (location.length > 3) {
@@ -208,24 +169,16 @@ function processImageID(id) {
   m2c.getMapillaryData(id, function(data) {
     if (data) {
       m2c.mapillaryInCommons(id, function(commons) {
-        if (!commons[0]) {
-          m2c.getMapzenLocation(data.geometry.coordinates, function(location) {
-
-            document.getElementById('location-input').value = location;
-            var evt = document.createEvent('HTMLEvents');
-            evt.initEvent('input', false, true);
-            document.getElementById('location-input').dispatchEvent(evt);
-
-            m2c.loadMapillaryImage(id, function(url) {
-              if (typeof url === 'string') {
-                document.getElementById('image').src = url;
-                document.getElementById('main').style.display = 'flex';
-                window.scrollTo(0, document.body.scrollHeight);
-              }
-            });
-          });
+        if (commons) {
+          m2c.openNotification('This image seams to exist in Commons: <a href="' + m2c.commonsFileEndpoint + commons + '">' + commons + '</a>');
         } else {
-          m2c.openNotification('This image seams to exist in Commons: <a href="' + m2c.commonsFileEndpoint + commons[1] + '">' + commons[1] + '</a>');
+          m2c.loadMapillaryImage(id, function(url) {
+            if (typeof url === 'string') {
+              document.getElementById('image').src = url;
+              document.getElementById('main').style.display = 'flex';
+              window.scrollTo(0, document.body.scrollHeight);
+            }
+          });
         }
       });
     } else {
