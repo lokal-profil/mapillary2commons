@@ -12,7 +12,7 @@
 		<div class="notification" id="notification"></div>
 		<div class="info">
 			<ul>
-				<li>You need a Wikimedia Commons account and to have <a href="https://tools.wmflabs.org/magnustools/oauth_uploader.php?action=authorize">authorized OAuth Uploader</a> for this tool to work.</li>
+				<li>You need a Wikimedia Commons account and to have <a href="https://tools.wmflabs.org/magnustools/oauth_uploader.php?action=authorize" title="Authorize your account for uploads with OAuth">authorized OAuth Uploader</a> for this tool to work.</li>
 				<li>Don't forget to go to the Commons image afterwards and add categories.</li>
 			</ul>
 		</div>
@@ -20,21 +20,21 @@
 			<div class="container">
 				<h1>Mapillary 2 Commons</h1>
 				<ul>
-					<li>Ever found a beautiful image on <a href="https://www.mapillary.com">Mapillary</a> and thought <i>That would look great on <a href="https://commons.wikimedia.org">Wikimedia Commons</a></i>?</li>
+					<li>Ever found a beautiful image on <a href="https://www.mapillary.com" title="The Mapillary website">Mapillary</a> and thought <i>That would look great on <a href="https://commons.wikimedia.org" title="Wikimedia Commons website">Wikimedia Commons</a></i>?</li>
 					<li>Simply enter the image key or url below and click "Lookup".</li>
 				</ul>
-				<input id="mapillary-input" type="text" placeholder="https://www.mapillary.com/map/im/2z5MCCrTgC1T29Gm8XJrCg" />
+				<input id="mapillary-input" type="text" placeholder="https://www.mapillary.com/map/im/2z5MCCrTgC1T29Gm8XJrCg" aria-label="Add a Mapillary image id"/>
 				<br/>
-				<button id="mapillary-submit" class="btn white">Lookup</button>
+				<button id="mapillary-submit" name="mapillary-submit" class="btn white" aria-label="Lookup the Mapillary image id">Lookup</button>
 			</div>
-			<p class="info-bottom"><a href="https://github.com/lokal-profil/mapillary2commons">Source Code and API Documentation</a></p>
+			<p class="info-bottom"><a href="https://github.com/lokal-profil/mapillary2commons" title="Source code on GitHub">Source Code and API Documentation</a></p>
 		</header>
 		<main id="main" class="container">
 			<img id="image" alt="the image to import" src="" />
 			<input id="location-input" type="text" placeholder="Describe location" />
 
 			<p>File to be named: <i id=filename-label></i></p>
-			<a id="upload" href="" class="btn">Upload</a>
+			<a id="upload" href="" class="btn" title="Upload">Upload</a>
 		</main>
 
 		<script src="js/app.js"></script>
